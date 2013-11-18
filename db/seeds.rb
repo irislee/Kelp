@@ -8,16 +8,10 @@
 require 'net/http'
 require 'json'
 
+
+# seed activities table
 i = 1
 allresults = []
-
-
-# http = ActiveSupport::JSON.decode('http://www.timeout.com/new-york-kids/search.json?page_size=25&order=relevance&nodes%5B0%5D=2073&keyword=&location=200&locationText=&section=&locationRadius=0&_section_search=&expand=&page=1&_source=')
-# result = ActiveSupport::JSON.decode(http)
-# allresults << result
-
-# my_hash = JSON.parse('http://www.timeout.com/new-york-kids/search.json?page_size=25&order=relevance&nodes%5B0%5D=2073&keyword=&location=200&locationText=&section=&locationRadius=0&_section_search=&expand=&page=1&_source=')
-# puts my_hash["hello"] => "goodbye"
 
 4.times do
   url = "http://www.timeout.com/new-york-kids/search.json?page_size=25&order=relevance&nodes%5B0%5D=2073&keyword=&location=200&locationText=&section=&locationRadius=0&_section_search=&expand=&page=#{i}&_source="
