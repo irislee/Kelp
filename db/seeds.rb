@@ -32,3 +32,15 @@ allresults.each do |activity|
   :url => activity["url_s"]
   ).first_or_create
 end
+
+# seed tags table
+Tag.create([
+  { name: 'Arts & Crafts' }, 
+  { name: 'Music' }, 
+  { name: 'Sports'  }, 
+  { name: 'General Interest' }, 
+  { name: 'Dance'},
+  { name: 'Languages'}])
+
+
+
