@@ -18,7 +18,7 @@
       <tbody>
         <% @activities.each do |activity| %>
           <tr>
-            <td><%= activity.name %></td>
+            <td><%= link_to activity.name, activity %></td>
             <td><%= activity.location %></td>
             <td><%= activity.blurb %></td>
             <td><a href="<%= activity.url %>"><%= activity.url %></a></td>
