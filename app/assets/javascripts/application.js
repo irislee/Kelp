@@ -12,4 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require ../../../vendor/assets/js/lightbox
+//= require ../../../vendor/assets/js/main
+//= require ../../../vendor/assets/js/prettify
 //= require_tree .
