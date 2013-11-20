@@ -29,7 +29,8 @@ allresults.each do |activity|
   :name => activity["name"], 
   :location => activity["address1_s"], 
   :blurb => activity["annotation"], 
-  :url => activity["url_s"]
+  :url => activity["url_s"],
+  :image => activity["image_id_i"]
   ).first_or_create
 end
 
@@ -41,6 +42,3 @@ Tag.create([
   { name: 'General Interest' }, 
   { name: 'Dance'},
   { name: 'Languages'}])
-
-
-
