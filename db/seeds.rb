@@ -25,20 +25,16 @@ allresults = []
 end
 
 allresults.each do |activity|
-  Activity.where(
+  new_activity = Activity.where(
   :name => activity["name"], 
   :location => activity["address1_s"], 
   :blurb => activity["annotation"], 
   :url => activity["url_s"],
   :image => activity["image_id_i"]
   ).first_or_create
+  
+  if !activity["suggest_tags"].nil?
+    new_activity.parse_tags(activity["suggest_tags"])
+    new_activity.save
+  end
 end
-
-# seed tags table
-Tag.create([
-  { name: 'Arts & crafts' }, 
-  { name: 'Music' }, 
-  { name: 'Sports'  }, 
-  { name: 'General Interest' }, 
-  { name: 'Dance'},
-  { name: 'Languages'}])

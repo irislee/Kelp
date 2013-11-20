@@ -8,6 +8,7 @@
         <p><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></p>
         <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a></p>
         <p><%= activity.blurb %></p>
+        <p><%= activity.category_list %></p>
         <p><%= link_to 'Show', activity %> | <%= link_to 'Edit', edit_activity_path(activity) %> | <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></p>
       <% end %>
   </div>
