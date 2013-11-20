@@ -36,7 +36,7 @@ end
 
 # seed tags table
 Tag.create([
-  { name: 'Arts & Crafts' }, 
+  { name: 'Arts & crafts' }, 
   { name: 'Music' }, 
   { name: 'Sports'  }, 
   { name: 'General Interest' }, 
