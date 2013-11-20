@@ -1,6 +1,18 @@
 class Activity < ActiveRecord::Base
   CATEGORIES = ["Arts & crafts"]
-  NEIGHBORHOODS = ["Upper East Side", "West Village"]
+  NEIGHBORHOODS = [
+    "Upper East Side", 
+    "Upper West Side", 
+    "West Village", 
+    "Chelsea", 
+    "Harlem", 
+    "Midtown", 
+    "Lower East Side", 
+    "Soho", 
+    "East Village", 
+    "Chelsea", 
+    "Midtown West", 
+    "Lower East Side"]
   
   def self.categories
     CATEGORIES

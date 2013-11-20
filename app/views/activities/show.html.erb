@@ -1,29 +1,23 @@
+<div class='container'>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @activity.name %>
-</p>
+<h1 class='section-header'><%= @activity.name %></h3>
 
 <p>
-  <strong>Location:</strong>
-  <%= @activity.location %>
+  <img src="http://kids.media.timeout.com/images/<%= @activity.image %>/150/113/image.jpg">
 </p>
+
+<p><%= @activity.location %> | <a href= "<%= @activity.url %>" target="_blank"><%= @activity.url %></a></p>
 
 <p>
   <strong>Blurb:</strong>
   <%= @activity.blurb %>
 </p>
 
-<p>
-  <strong>Url:</strong>
-  <a href= "<%= @activity.url %>" target="_blank"><%= @activity.url %></a>
+<p><strong>Categories:</strong>
+  <%= @activity.category_list %>
 </p>
-
-<!-- <p>
-  <strong>Type:</strong>
-  <%#= @activity.type %>
-</p> -->
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
 <%= link_to 'Back', activities_path %>
+</div>

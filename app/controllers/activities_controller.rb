@@ -7,6 +7,11 @@ class ActivitiesController < ApplicationController
     @activities = Activity.all
   end
 
+  def neighborhood
+    @activities = Activity.where(:neighborhood => params[:neighborhood])
+    # @activities = Activity.where(:neighborhood => "Chelsea")
+  end
+
   # GET /activities/1
   # GET /activities/1.json
   def show
@@ -69,6 +74,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :location, :blurb, :url, :type)
+      params.require(:activity).permit(:name, :location, :blurb, :url, :type, :neighborhood, :category_list)
     end
 end
