@@ -1,17 +1,22 @@
 class Activity < ActiveRecord::Base
   CATEGORIES = ["Arts & crafts"]
-  NEIGHBORHOODS = ["Upper East Side"]
+  NEIGHBORHOODS = ["Upper East Side", "West Village"]
   
   def self.categories
     CATEGORIES
   end
 
+  def self.neighborhoods
+    NEIGHBORHOODS
+  end
+
   def parse_tags(tags)
-    self.category_list = tags.select{ |tag| CATEGORIES.include?(tag) }.join(",")
+    self.category_list = tags.select{ |tag| Activity.categories.include?(tag) }.join(",")
+    self.neighborhood = tags.select{ |tag| Activity.neighborhoods.include?(tag) }.first
   end
 
   def categories
-    puts category_list
     self.category_list.split(",")
   end
+
 end

@@ -1,8 +1,7 @@
 require_relative '../spec_helper'
 
 describe Activity do
-  it "parses categories from tags" do
-    tag_list = [
+  let(:tag_list) {[
     "Dance",
     "Play spaces",
     "Art",
@@ -13,9 +12,17 @@ describe Activity do
     "Arts & crafts",
     "Sports & rec",
     "Birthday party venue"
-    ]
+    ]}
+
+  it "parses categories from tags" do
     activity = Activity.new
     activity.parse_tags(tag_list)
     activity.categories.should include("Arts & crafts")
+  end
+
+  it "parses neighborhood from tags" do
+    activity = Activity.new
+    activity.parse_tags(tag_list)
+    activity.neighborhood.should eq("West Village")
   end
 end
