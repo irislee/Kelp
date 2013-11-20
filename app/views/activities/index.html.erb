@@ -1,37 +1,13 @@
-
-  <section class='section-wrapper stripped'>
-    <div class='container'>
-      <h3 class='section-header'>Listing activities</h3>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Location</th>
-          <th>Blurb</th>
-          <th>Url</th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @activities.each do |activity| %>
-          <tr>
-            <td><%= link_to activity.name, activity %></td>
-            <td><%= activity.location %></td>
-            <td><%= activity.blurb %></td>
-            <td><a href="<%= activity.url %>"><%= activity.url %></a></td>
-            <td><%= link_to 'Show', activity %></td>
-            <td><%= link_to 'Edit', edit_activity_path(activity) %></td>
-            <td><%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
+<section class='section-wrapper stripped'>
+  <div class='container'>
+    <h1 class='section-header'>Activities in Manhattan</h3>
+      <% @activities.each do |activity| %>
+        <h3><%= link_to activity.name, activity %></h3>
+        <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a></p>
+        <p><%= activity.blurb %></p>
+        <p><%= link_to 'Show', activity %> | <%= link_to 'Edit', edit_activity_path(activity) %> | <%= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <% end %>
   </div>
 </section>
 
 <br>
-
-<%= link_to 'New Activity', new_activity_path %>
