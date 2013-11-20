@@ -1,6 +1,8 @@
+<div class='container'>
+  <h1 class='section-header'>Activities in Manhattan</h3>
+</div>
 <section class='section-wrapper stripped'>
   <div class='container'>
-    <h1 class='section-header'>Activities in Manhattan</h3>
       <% @activities.each do |activity| %>
         <h3><%= link_to activity.name, activity %></h3>
         <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a></p>
