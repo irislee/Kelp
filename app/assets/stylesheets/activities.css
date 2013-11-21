@@ -5,10 +5,3 @@
 .info { display: block; float: left; width: 80%; }
 
 .activity { margin-bottom: 20px; }
-
-/*.blurb {
-  width: 80%;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}*/

@@ -1,11 +1,30 @@
+<div class='container'>
+  <h1 class='section-header'><%= CGI.unescape(params[:category_list]) %></h1>
+</div>
 <section class='section-wrapper stripped'>
   <div class='container'>
-    <% @activities.each do |activity| %>
-      <h3><%= link_to activity.name, activity %></h3>
-      <p><a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a></p>
-      <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a></p>
-      <p><%= activity.blurb %></p>
-      <p><strong>Neighborhood: </strong><%= activity.neighborhood %> | <strong>Categories: </strong><%= activity.category_list %></p>
-    <% end %>
+      <% @activities.each do |activity| %>
+        <div class="activity clearfix">
+            
+            <div class="title"><%= link_to activity.name, activity %></div>
+            <% if activity.image != nil %>
+              <a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a>
+            <% else %>
+              <a href="activities/<%= activity.id %>"><img src="http://placekitten.com/g/150/113"></a>
+            <% end %>
+            <div class="info">
+                <p><%= activity.location %> | <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><%= activity.neighborhood %></a> | <a href="<%= activity.url %>"><%= activity.url %></a><br> 
+                <strong>Categories: </strong>
+                <% activity.category_list.split(",").each do |category| %>
+                  <a href="/category/<%= CGI.escape(category) %>"><%= category %> </a>
+                <% end %><p>
+              <div class="blurb">
+                <%= activity.blurb %>
+              </div>
+            </div><!-- .info -->
+        </div><!-- .activity -->
+      <% end %>
   </div>
 </section>
+
+<br>

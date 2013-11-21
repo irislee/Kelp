@@ -28,10 +28,4 @@ $(function () {
                 .append($('<div class="hidden" />').html(end));
         }
     });
-    // $(document).on('click', '.readmore', function () {
-    //     $(this).html(function (_, ctr) {
-    //         return (ctr == 'read more...') ? 'read less...' : 'read more...'
-    //     });
-    //     $(this).next('.hidden').slideToggle(750);
-    // });
 });
