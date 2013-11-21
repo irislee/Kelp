@@ -8,8 +8,7 @@ class ActivitiesController < ApplicationController
   end
 
   def neighborhood
-    @activities = Activity.where(:neighborhood => params[:neighborhood])
-    # @activities = Activity.where(:neighborhood => "Chelsea")
+    @activities = Activity.where(:neighborhood => params[:neighborhood].gsub("-"," "))
   end
 
   # GET /activities/1
@@ -76,4 +75,5 @@ class ActivitiesController < ApplicationController
     def activity_params
       params.require(:activity).permit(:name, :location, :blurb, :url, :type, :neighborhood, :category_list)
     end
+
 end
