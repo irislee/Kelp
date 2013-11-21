@@ -1,5 +1,10 @@
 class Activity < ActiveRecord::Base
-  CATEGORIES = ["Arts & crafts"]
+  CATEGORIES = [
+    "Arts & crafts",
+    "Birthday parties",
+    "Dance",
+    "Sports & rec",
+    "Science & technology"]
   NEIGHBORHOODS = [
     "Upper East Side", 
     "Upper West Side", 
