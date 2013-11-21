@@ -1,15 +1,21 @@
 <div class='container'>
-  <h1 class='section-header'>Activities in Manhattan</h3>
+  <h1 class='section-header'>Activities in Manhattan</h1>
 </div>
 <section class='section-wrapper stripped'>
   <div class='container'>
       <% @activities.each do |activity| %>
-        <h3><%= link_to activity.name, activity %></h3>
-        <p><a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a></p>
-        <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a></p>
-        <p><%= activity.blurb %></p>
-        <p><strong>Neighborhood: </strong><%= activity.neighborhood %> | <strong>Categories: </strong><%= activity.category_list %></p>
-        <!-- <p><%#= link_to 'Show', activity %> | <%#= link_to 'Edit', edit_activity_path(activity) %> | <%#= link_to 'Destroy', activity, method: :delete, data: { confirm: 'Are you sure?' } %></p> -->
+        <div class="activity clearfix">
+            
+            <div class="title"><%= link_to activity.name, activity %></div>
+            
+            <a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a>
+             
+            <div class="info">
+                <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a><br> 
+                <strong>Neighborhood: </strong><%= activity.neighborhood %> | <strong>Categories: </strong><%= activity.category_list %><br>
+                <%= activity.blurb %></p>
+            </div><!-- .info -->
+        </div><!-- .activity -->
       <% end %>
   </div>
 </section>
