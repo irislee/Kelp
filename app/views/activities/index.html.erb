@@ -13,8 +13,8 @@
               <a href="activities/<%= activity.id %>"><img src="http://placekitten.com/g/150/113"></a>
             <% end %>
             <div class="info">
-                <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a><br> 
-                <strong>Neighborhood: </strong><a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><%= activity.neighborhood %></a> |
+                <p><%= activity.location %> | <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><%= activity.neighborhood %></a> | <a href="<%= activity.url %>"><%= activity.url %></a><br> 
+                <strong>Categories: </strong>
                 <% activity.category_list.split(",").each do |category| %>
                   <a href="/category/<%= CGI.escape(category) %>"><%= category %> </a>
                 <% end %><p>

@@ -24,7 +24,7 @@ $(function () {
                 end = text.substr(maxL);
 
             $(this).html(begin)
-                .append($('<a class="readmore"/>').attr('href', '#').html('...Read more'))
+                .append($('<a class="readmore"/>').attr('href', '/activities/<%= activity.id %>').html('...Read more'))
                 .append($('<div class="hidden" />').html(end));
         }
     });
