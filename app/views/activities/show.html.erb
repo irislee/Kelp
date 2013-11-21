@@ -1,7 +1,7 @@
 <div class='container'>
 <p id="notice"><%= notice %></p>
 
-<h1 class='section-header'><%= @activity.name %></h3>
+<h3 class='section-header'><%= @activity.name %></h3>
 
 <p>
   <img src="http://kids.media.timeout.com/images/<%= @activity.image %>/150/113/image.jpg">
@@ -10,7 +10,6 @@
 <p><%= @activity.location %> | <a href= "<%= @activity.url %>" target="_blank"><%= @activity.url %></a></p>
 
 <p>
-  <strong>Blurb:</strong>
   <%= @activity.blurb %>
 </p>
 

@@ -7,9 +7,11 @@
         <div class="activity clearfix">
             
             <div class="title"><%= link_to activity.name, activity %></div>
-            
-            <a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a>
-             
+            <% if activity.image != nil %>
+              <a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a>
+            <% else %>
+              <a href="activities/<%= activity.id %>"><img src="http://placekitten.com/g/150/113"></a>
+            <% end %>
             <div class="info">
                 <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a><br> 
                 <strong>Neighborhood: </strong><%= activity.neighborhood %> | <strong>Categories: </strong><%= activity.category_list %><br>
