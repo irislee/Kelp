@@ -12,8 +12,8 @@ class ActivitiesController < ApplicationController
   end
 
   def category
-    category_list = params[:category_list].gsub("+", " ")
-    @activities = Activity.where("category_list like ?", category_list)
+    category_url = params[:category_list].gsub("+", " ")
+    @activities = Activity.where("category_list LIKE ?", "%#{category_url}%")
   end
 
   # GET /activities/1
