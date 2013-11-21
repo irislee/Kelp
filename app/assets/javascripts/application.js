@@ -13,3 +13,25 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(function () {
+    var maxL = 425;
+    $('.blurb ').each(function (div) {
+        var text = $(this).text();
+        if (text.length > maxL) {
+
+            var begin = text.substr(0, maxL),
+                end = text.substr(maxL);
+
+            $(this).html(begin)
+                .append($('<a class="readmore"/>').attr('href', '#').html('...Read more'))
+                .append($('<div class="hidden" />').html(end));
+        }
+    });
+    // $(document).on('click', '.readmore', function () {
+    //     $(this).html(function (_, ctr) {
+    //         return (ctr == 'read more...') ? 'read less...' : 'read more...'
+    //     });
+    //     $(this).next('.hidden').slideToggle(750);
+    // });
+});
