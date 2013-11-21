@@ -14,7 +14,7 @@
             <% end %>
             <div class="info">
                 <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a><br> 
-                <strong>Neighborhood: </strong><%= activity.neighborhood %> | <strong>Categories: </strong><%= activity.category_list %><br>
+                <strong>Neighborhood: </strong><a href="/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><%= activity.neighborhood %></a> | <strong>Categories: </strong><%= activity.category_list %><br>
                 <%= activity.blurb %></p>
             </div><!-- .info -->
         </div><!-- .activity -->

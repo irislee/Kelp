@@ -2,7 +2,7 @@ CityKid::Application.routes.draw do
   resources :activities
   get '/' => 'activities#index'
   get '/:neighborhood' => 'activities#neighborhood',as: :neighborhood
-
+  get '/:category_list' => 'activities#category',as: :category
   # get '/locations/:name' => 'activities#location'
 
   # The priority is based upon order of creation: first created -> highest priority.

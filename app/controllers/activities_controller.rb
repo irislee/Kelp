@@ -11,6 +11,10 @@ class ActivitiesController < ApplicationController
     @activities = Activity.where(:neighborhood => params[:neighborhood].gsub("-"," "))
   end
 
+  def category
+    @activities = Activity.where(:category_list => params[:category_list].gsub("-"," "))
+  end
+
   # GET /activities/1
   # GET /activities/1.json
   def show
