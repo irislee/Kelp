@@ -14,18 +14,3 @@
 //= require jquery_ujs
 //= require_tree .
 
-$(function () {
-    var maxL = 425;
-    $('.blurb ').each(function (div) {
-        var text = $(this).text();
-        if (text.length > maxL) {
-
-            var begin = text.substr(0, maxL),
-                end = text.substr(maxL);
-
-            $(this).html(begin)
-                .append($('<a class="readmore"/>').attr('href', '/activities/<%= activity.id %>').html('...Read more'))
-                .append($('<div class="hidden" />').html(end));
-        }
-    });
-});
