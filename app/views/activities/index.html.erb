@@ -17,8 +17,10 @@
                 <strong>Neighborhood: </strong><a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><%= activity.neighborhood %></a> |
                 <% activity.category_list.split(",").each do |category| %>
                   <a href="/category/<%= CGI.escape(category) %>"><%= category %> </a>
-                <% end %><br>
-                <%= activity.blurb %></p>
+                <% end %><p><br>
+              <div class="blurb">
+                <%= activity.blurb %>
+              </div>
             </div><!-- .info -->
         </div><!-- .activity -->
       <% end %>
