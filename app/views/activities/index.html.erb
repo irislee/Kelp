@@ -11,18 +11,21 @@
               <a href="activities/<%= activity.id %>"><img src="http://placekitten.com/g/150/113"></a>
             <% end %>
             <div class="info">
-                <p><%= activity.location %> | <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><%= activity.neighborhood %></a> | <a href="<%= activity.url %>"><%= activity.url %></a><br> 
-                <strong>Categories: </strong>
+                <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a><br>
+                <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= activity.neighborhood %></button></a>
                 <% activity.category_list.split(",").each do |category| %>
-                  <a href="/category/<%= CGI.escape(category) %>"><%= category %> |</a>
+                  <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
                 <% end %><p>
               <div class="blurb">
-                <%= truncate(activity.blurb, length: 200) { link_to "Read More", activity} %>
+                <%= truncate(activity.blurb, length: 250) { link_to "Read More", activity} %>
               </div>
             </div><!-- .info -->
         </div><!-- .activity -->
+        <hr>
       <% end %>
   </div>
 </section>
 
+
+<button type="button" class="btn btn-success btn-xs">Extra small button</button>
 <br>
