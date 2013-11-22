@@ -4715,7 +4715,7 @@ a.badge:focus {
   display: block;
   padding: 15px 20px;
   background: #f7f8f1;
-  background: #f7f8f1 url('../images/accordion-on.png') 97% center no-repeat;
+  background: #f7f8f1 image-url('accordion-on.png') 97% center no-repeat;
   -webkit-box-shadow: 1px 1px 2px #ffffff inset, 1px 1px 3px 0px #d7d8cf;
   -moz-box-shadow: 1px 1px 2px #ffffff inset, 1px 1px 3px 0px #d7d8cf;
   box-shadow: 1px 1px 2px #ffffff inset, 1px 1px 3px 0px #d7d8cf;
@@ -7676,7 +7676,7 @@ a .icon-flip-vertical:before {
   position: relative;
   padding: 50px;
   *padding-top: 30px;
-  background: transparent image-path('assets/stripped-bg.png') left top repeat;
+  background: transparent image-url('stripped-bg.png') left top repeat;
   -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
@@ -9105,7 +9105,7 @@ li.L9 {
   font-weight: 300;
 }
 .just-stripped {
-  background: transparent url('../images/stripped-bg.png') left top repeat;
+  background: transparent image-url('stripped-bg.png') left top repeat;
 }
 /* Can be used to separte sections of the website */
 .section-wrapper {
