@@ -1,6 +1,6 @@
 README
 
-It's Yelp for kids' activities in Manhattan.
+Kelp: It's Yelp for kids' activities in Manhattan.
 http://itsthisforthat.com/
 
 1. Open Terminal on your computer 
