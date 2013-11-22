@@ -1,4 +1,4 @@
-== README
+README
 
 It's Yelp for kids' activities in Manhattan.
 http://itsthisforthat.com/
