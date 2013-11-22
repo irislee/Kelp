@@ -5,3 +5,5 @@
 .info { display: block; float: left; width: 80%; }
 
 .activity { margin-bottom: 20px; }
+
+.pagination { width: 100%; text-align: center; }
