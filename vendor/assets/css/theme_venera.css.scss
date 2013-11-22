@@ -7676,7 +7676,7 @@ a .icon-flip-vertical:before {
   position: relative;
   padding: 50px;
   *padding-top: 30px;
-  background: transparent url('../images/stripped-bg.png') left top repeat;
+  background: transparent image-path('assets/stripped-bg.png') left top repeat;
   -webkit-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
   -moz-box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
   box-shadow: 2px 2px 4px 0px rgba(0, 0, 0, 0.1) inset;
@@ -9123,7 +9123,7 @@ li.L9 {
 
 }
 .section-wrapper.stripped {
-  background: transparent url('../images/stripped-bg.png') left top repeat;
+  background: transparent image-url('stripped-bg.png') left top repeat;
 }
 .section-wrapper.under-slider {
   border-top: 3px solid #fff;
