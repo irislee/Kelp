@@ -3,10 +3,12 @@ class ReviewsController < ApplicationController
 
   def upvote
     @review.liked_by current_user
+    redirect_to @review.activity
   end
 
   def downvote
     @review.downvote_from current_user
+    redirect_to @review.activity
   end
 
   # GET /reviews

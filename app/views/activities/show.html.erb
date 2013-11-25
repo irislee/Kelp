@@ -27,7 +27,9 @@
     <p><strong><%= review.user.name %> says:</strong>
     <%= review.review_text %><br></p>
     <%= link_to "Like", review_upvote_path(review) %>
+    <%= review.likes.size %>
     <%= link_to "Dislike", review_downvote_path(review) %>
+    <%= review.dislikes.size %>
   <% end %>
 </div>
 

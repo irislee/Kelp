@@ -1,7 +1,7 @@
 CityKid::Application.routes.draw do
   resources :reviews
-  get '/reviews/:id/upvote' => 'reviews#upvote'
-  get '/reviews/:id/downvote' => 'reviews#downvote'
+  get '/reviews/:id/upvote' => 'reviews#upvote', :as => :review_upvote
+  get '/reviews/:id/downvote' => 'reviews#downvote', :as => :review_downvote
 
   get "sessions/new"
   post "sessions/create"
