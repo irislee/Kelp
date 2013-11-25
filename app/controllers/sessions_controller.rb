@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    redirect_to activities_path if current_user
   end
 
   def create
@@ -13,5 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
+    session[:user_id] = nil
+    redirect_to activities_path
   end
 end
