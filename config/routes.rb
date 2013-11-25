@@ -1,4 +1,6 @@
 CityKid::Application.routes.draw do
+  resources :users
+
   resources :activities
   get '/' => 'activities#index'
   get '/neighborhood/:neighborhood' => 'activities#neighborhood',as: :neighborhood
