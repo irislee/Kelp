@@ -1,5 +1,13 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: [:show, :edit, :update, :destroy]
+  before_action :set_review, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+
+  def upvote
+    @review.liked_by current_user
+  end
+
+  def downvote
+    @review.downvote_from current_user
+  end
 
   # GET /reviews
   # GET /reviews.json

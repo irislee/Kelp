@@ -25,7 +25,9 @@
 <div class="container">
   <% @activity.reviews.reject{|review| review.review_text.nil?}.each do |review| %>
     <p><strong><%= review.user.name %> says:</strong>
-    <%= review.review_text %></p>
+    <%= review.review_text %><br></p>
+    <%= link_to "Like", review_upvote_path(review) %>
+    <%= link_to "Dislike", review_downvote_path(review) %>
   <% end %>
 </div>
 
