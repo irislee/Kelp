@@ -19,6 +19,44 @@
     </p>
 
     <%#= link_to 'Edit', edit_activity_path(@activity) %>
-    <%= link_to 'Back', activities_path %>
   </div>
 </section>
+
+<div class="container">
+  <% @activity.reviews.reject{|review| review.review_text.nil?}.each do |review| %>
+    <p><strong><%= review.user.name %> says:</strong>
+    <%= review.review_text %></p>
+  <% end %>
+</div>
+
+<div class="container">
+  <%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.hidden_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.hidden_field :activity_id %>
+  </div>
+  <div class="field">
+    <%= f.label "Review This Activity" %><br>
+    <%= f.text_area :review_text, :cols => "150", :rows => "10" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', activities_path %>
+</div>

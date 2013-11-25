@@ -19,6 +19,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
+    @review = @activity.reviews.build(:user_id => session[:user_id])
   end
 
   # GET /activities/new
