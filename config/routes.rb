@@ -1,4 +1,6 @@
 CityKid::Application.routes.draw do
+  resources :reviews
+
   get "sessions/new"
   post "sessions/create"
   get "sessions/destroy"
