@@ -19,8 +19,10 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
-    @review = @activity.reviews.build(:user_id => session[:user_id])
-    @rating = Rating.find_or_create_by(:activity_id => @activity.id, :user_id => current_user.id) 
+    if current_user
+      @review = @activity.reviews.build(:user_id => session[:user_id])
+      @rating = Rating.find_or_create_by(:activity_id => @activity.id, :user_id => current_user.id) 
+    end
   end
 
   # GET /activities/new
