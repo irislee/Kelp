@@ -12,6 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require raty.min.js
+//= require raty
 //= require twitter/bootstrap
 //= require_tree .
