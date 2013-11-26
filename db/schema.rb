@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125214731) do
+ActiveRecord::Schema.define(version: 20131126163131) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 20131125214731) do
     t.string   "category_list"
     t.string   "neighborhood"
   end
+
+  create_table "ratings", force: true do |t|
+    t.integer  "activity_id"
+    t.integer  "user_id"
+    t.integer  "score",       default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ratings", ["activity_id"], name: "index_ratings_on_activity_id"
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
 
   create_table "reviews", force: true do |t|
     t.integer  "user_id"

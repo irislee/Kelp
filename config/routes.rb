@@ -12,7 +12,8 @@ CityKid::Application.routes.draw do
   get '/' => 'activities#index'
   get '/neighborhood/:neighborhood' => 'activities#neighborhood',as: :neighborhood
   get '/category/:category_list' => 'activities#category',as: :category
-  # get '/locations/:name' => 'activities#location'
+
+  resources :ratings, only: :update
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
