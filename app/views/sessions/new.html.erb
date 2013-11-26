@@ -1,22 +1,22 @@
 <br>
 <br>
 <br>
-<p>Not a user? <%= link_to "Sign up", new_user_path %></p>
 <div class="container">
+  <h4>Not a user? <%= link_to "Sign up", new_user_path %></h4>
   <% if flash[:alert] %>
   <p id="notice"><%= flash[:alert] %></p>
   <% end %>
   <%= form_tag("/sessions/create") do %>
   <fieldset>
-    <legend>Please Login</legend>
+    <h3><legend>Please Login</legend></h3>
     <div>
-      <%= label_tag :name, 'Name:' %>
+      <%= label_tag :name, 'Name' %><br>
       <%= text_field_tag :name, params[:name] %>
     </div>
     <div>
-      <%= label_tag :password, 'Password:' %>
+      <%= label_tag :password, 'Password' %><br>
       <%= password_field_tag :password, params[:password] %>
-    </div>
+    </div><br>
     <div>
       <%= submit_tag "Login" %>
     </div>
