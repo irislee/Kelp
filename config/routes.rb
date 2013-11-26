@@ -1,4 +1,13 @@
 CityKid::Application.routes.draw do
+  resources :reviews
+  get '/reviews/:id/upvote' => 'reviews#upvote', :as => :review_upvote
+  get '/reviews/:id/downvote' => 'reviews#downvote', :as => :review_downvote
+
+  get "sessions/new"
+  post "sessions/create"
+  get "sessions/destroy"
+  resources :users
+
   resources :activities
   get '/' => 'activities#index'
   get '/neighborhood/:neighborhood' => 'activities#neighborhood',as: :neighborhood

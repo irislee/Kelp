@@ -44,8 +44,9 @@ end
 gem 'will_paginate', '~> 3.0'
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.1.2'
+gem 'bcrypt-ruby', '~> 3.1.2'
 
+gem 'acts_as_votable'
 # Use unicorn as the app server
 # gem 'unicorn'
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131120165248) do
+ActiveRecord::Schema.define(version: 20131125214731) do
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -25,8 +25,41 @@ ActiveRecord::Schema.define(version: 20131120165248) do
     t.string   "neighborhood"
   end
 
+  create_table "reviews", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "activity_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "review_text"
+  end
+
+  add_index "reviews", ["activity_id"], name: "index_reviews_on_activity_id"
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
   create_table "tags", force: true do |t|
     t.string "name"
   end
+
+  create_table "users", force: true do |t|
+    t.string   "name"
+    t.string   "password_digest"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "votes", force: true do |t|
+    t.integer  "votable_id"
+    t.string   "votable_type"
+    t.integer  "voter_id"
+    t.string   "voter_type"
+    t.boolean  "vote_flag"
+    t.string   "vote_scope"
+    t.integer  "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
 
 end

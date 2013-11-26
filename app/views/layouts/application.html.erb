@@ -75,12 +75,23 @@
             </ul>
           </li>
         </ul>
+        <p class="navbar-text navbar-right">
+        <% if current_user %>
+          <%= current_user.name %> |
+          <%= link_to 'Log Out', sessions_destroy_path, {:class => "navbar-link"} %>
+        <% else %>
+          <%= link_to 'Login', sessions_new_path, {:class => "navbar-link"} %>
+        <% end %>
+        </p>
         <p class="navbar-text navbar-right"><a href="https://twitter.com/margeleedees2" class="navbar-link"><%= image_tag "twitter1.png" %></a></p>
         <p class="navbar-text navbar-right"><a href="https://github.com/irislee/city-kid" class="navbar-link"><%= image_tag "github.png" %></a></p>
       </div><!-- /.navbar-collapse -->
     </nav>
 
       <div>
+        <br>
+        <br>
+        <br>
         <%= yield %>
       </div>
     </div><!--/row-->

@@ -1,4 +1,6 @@
 class Activity < ActiveRecord::Base
+  has_many :reviews
+  
   CATEGORIES = [
     "Arts & crafts",
     "Birthday parties",
