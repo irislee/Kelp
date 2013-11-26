@@ -30,7 +30,7 @@ allresults.each do |activity|
   :location => activity["address1_s"], 
   :blurb => activity["annotation"], 
   :url => activity["url_s"],
-  :image => activity["image_id_i"]
+  :image => activity["image_id_i"].to_s
   ).first_or_create
   
   if !activity["suggest_tags"].nil?
