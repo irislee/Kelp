@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20131126163131) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: true do |t|
     t.string   "name"
     t.string   "location"
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20131126163131) do
     t.datetime "updated_at"
   end
 
-  add_index "ratings", ["activity_id"], name: "index_ratings_on_activity_id"
-  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id"
+  add_index "ratings", ["activity_id"], name: "index_ratings_on_activity_id", using: :btree
+  add_index "ratings", ["user_id"], name: "index_ratings_on_user_id", using: :btree
 
   create_table "reviews", force: true do |t|
     t.integer  "user_id"
@@ -44,8 +47,8 @@ ActiveRecord::Schema.define(version: 20131126163131) do
     t.text     "review_text"
   end
 
-  add_index "reviews", ["activity_id"], name: "index_reviews_on_activity_id"
-  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+  add_index "reviews", ["activity_id"], name: "index_reviews_on_activity_id", using: :btree
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "tags", force: true do |t|
     t.string "name"
@@ -70,7 +73,7 @@ ActiveRecord::Schema.define(version: 20131126163131) do
     t.datetime "updated_at"
   end
 
-  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
-  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
+  add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
+  add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
 end
