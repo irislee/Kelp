@@ -1,7 +1,7 @@
 <section class='section-wrapper stripped'>
   <div class='container'>
     <p id="notice"><%= notice %></p>
-
+    <div class="activity clearfix">
     <h3 class='section-header'><%= @activity.name %></h3>
 
     <p>
@@ -15,9 +15,12 @@
     </p>
 
     <p><strong>Categories:</strong>
-      <%= @activity.category_list %>
+      <a href="/neighborhood/<%= @activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= @activity.neighborhood %></button></a>
+      <% @activity.category_list.split(",").each do |category| %>
+                  <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
+                <% end %><p>
     </p>
-
+  </div>
     <%#= link_to 'Edit', edit_activity_path(@activity) %>
   </div>
 </section>
