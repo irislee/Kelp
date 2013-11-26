@@ -68,7 +68,9 @@
       <p><% if current_user %>
         <%= link_to "Agree", review_upvote_path(review), {:class => "btn btn-info btn-xs"} %>
         <%= link_to "Disagree", review_downvote_path(review), {:class => "btn btn-warning btn-xs"} %>
-        <%= number_to_percentage((review.likes.size.to_f/review.votes.size.to_f)*100, precision: 0) %> of people agreed with this review.
+        <% if review.votes.size != 0 %>
+          <%= number_to_percentage((review.likes.size.to_f/review.votes.size.to_f)*100, precision: 0) %> of people agreed with this review.
+        <% end %>
         <% end %>
       </p>
     </p>
