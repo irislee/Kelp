@@ -10,6 +10,7 @@
             <% else %>
               <a href="activities/<%= activity.id %>"><img src="http://placekitten.com/g/150/113"></a>
             <% end %>
+            <span class="star" data-rating="<%= activity.average_rating %>"></span>
             <div class="info">
                 <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a><br>
                 <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= activity.neighborhood %></button></a>
@@ -17,13 +18,12 @@
                   <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
                 <% end %><p>
               <div class="blurb">
-                <%= truncate(activity.blurb, length: 350) { link_to "Read More", activity} %>
+                <%= truncate(activity.blurb, length: 250) { link_to "Read More", activity} %>
               </div>
 
             </div><!-- .info -->
 
         </div><!-- .activity -->
-        <p>Average rating:<div class="star" data-rating="<%= activity.average_rating %>"></div>
         <hr>
       <% end %>
   </div>

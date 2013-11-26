@@ -7,6 +7,9 @@
     <p>
       <img src="http://kids.media.timeout.com/images/<%= @activity.image %>/150/113/image.jpg">
     </p>
+
+    <span id="star"></span>
+    <div class="info">
     <p><%= @activity.location %> | <a href= "<%= @activity.url %>" target="_blank"><%= @activity.url %></a></p>
 
     <p>
@@ -19,28 +22,13 @@
                 <% end %><p>
     </p>
   </div>
-    <p>Average rating:<div id="star"></div>
-    Your rating:<div id="user_star"></div></p>
+  </div>
     <%#= link_to 'Edit', edit_activity_path(@activity) %>
   </div>
 </section>
 
 <div class="container">
-  <% @activity.reviews.reject{|review| review.review_text.nil?}.each do |review| %>
-    <p><strong><%= review.user.name %> says:</strong>
-    <%= review.review_text %><br></p>
-    <p>
-      <p>
-        <%= link_to "Agree", review_upvote_path(review), {:class => "btn btn-info btn-xs"} %>
-        <%= link_to "Disagree", review_downvote_path(review), {:class => "btn btn-warning btn-xs"} %>
-        <%= number_to_percentage((review.likes.size.to_f/review.votes.size.to_f)*100, precision: 0) %> of people agreed with this review.
-      </p>
-    </p>
-    <hr>
-  <% end %>
-</div>
-
-<div class="container">
+Your rating: <span id="user_star"></span>
   <%= form_for(@review) do |f| %>
   <% if @review.errors.any? %>
     <div id="error_explanation">
@@ -68,8 +56,21 @@
     <%= f.submit %>
   </div>
 <% end %>
+</div>
 
-<%= link_to 'Back', activities_path %>
+<div class="container">
+  <% @activity.reviews.reject{|review| review.review_text.nil?}.each do |review| %>
+    <p><strong><%= review.user.name %> says:</strong>
+    <%= review.review_text %><br></p>
+    <p>
+      <p>
+        <%= link_to "Agree", review_upvote_path(review), {:class => "btn btn-info btn-xs"} %>
+        <%= link_to "Disagree", review_downvote_path(review), {:class => "btn btn-warning btn-xs"} %>
+        <%= number_to_percentage((review.likes.size.to_f/review.votes.size.to_f)*100, precision: 0) %> of people agreed with this review.
+      </p>
+    </p>
+    <hr>
+  <% end %>
 </div>
 
 <script>
