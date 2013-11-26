@@ -17,12 +17,27 @@
                   <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
                 <% end %><p>
               <div class="blurb">
-                <%= truncate(activity.blurb, length: 250) { link_to "Read More", activity} %>
+                <%= truncate(activity.blurb, length: 350) { link_to "Read More", activity} %>
               </div>
+
             </div><!-- .info -->
+
         </div><!-- .activity -->
+        <p>Average rating:<div class="star" data-rating="<%= activity.average_rating %>"></div>
         <hr>
       <% end %>
   </div>
 </section>
 <%= will_paginate @activities %>
+<script>
+  $(function(){
+    $(".star").each(function(index){
+      var rating = $(this).data('rating');
+      $(this).raty({
+        readOnly: true,
+        score: rating,
+        path: '/assets'
+      });
+    });
+  });
+</script>

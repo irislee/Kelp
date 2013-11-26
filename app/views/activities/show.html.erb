@@ -7,15 +7,11 @@
     <p>
       <img src="http://kids.media.timeout.com/images/<%= @activity.image %>/150/113/image.jpg">
     </p>
-    <p>Average rating</p>
-    <div id="star"></div>
     <p><%= @activity.location %> | <a href= "<%= @activity.url %>" target="_blank"><%= @activity.url %></a></p>
 
     <p>
       <%= @activity.blurb %>
     </p>
-    <p>Your rating</p>
-    <div id="user_star"></div>
     <p><strong>Categories:</strong>
       <a href="/neighborhood/<%= @activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= @activity.neighborhood %></button></a>
       <% @activity.category_list.split(",").each do |category| %>
@@ -23,6 +19,8 @@
                 <% end %><p>
     </p>
   </div>
+    <p>Average rating:<div id="star"></div>
+    Your rating:<div id="user_star"></div></p>
     <%#= link_to 'Edit', edit_activity_path(@activity) %>
   </div>
 </section>
