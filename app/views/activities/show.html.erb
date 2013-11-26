@@ -29,10 +29,14 @@
   <% @activity.reviews.reject{|review| review.review_text.nil?}.each do |review| %>
     <p><strong><%= review.user.name %> says:</strong>
     <%= review.review_text %><br></p>
-    <%= link_to "Like", review_upvote_path(review) %>
-    <%= review.likes.size %>
-    <%= link_to "Dislike", review_downvote_path(review) %>
-    <%= review.dislikes.size %>
+    <p>
+      <p>
+        <%= link_to "Agree", review_upvote_path(review), {:class => "btn btn-info btn-xs"} %>
+        <%= link_to "Disagree", review_downvote_path(review), {:class => "btn btn-warning btn-xs"} %>
+        <%= review.likes.size %>/<%= review.votes.size %> people agreed with this review.
+      </p>
+    </p>
+    <hr>
   <% end %>
 </div>
 
@@ -58,7 +62,7 @@
   </div>
   <div class="field">
     <%= f.label "Review This Activity" %><br>
-    <%= f.text_area :review_text, :cols => "150", :rows => "10" %>
+    <%= f.text_area :review_text, :cols => "150", :rows => "5" %>
   </div>
   <div class="actions">
     <%= f.submit %>
