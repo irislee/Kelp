@@ -20,10 +20,14 @@
       <%= @activity.blurb %>
     </p>
     <p><strong>Categories:</strong>
-      <a href="/neighborhood/<%= @activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= @activity.neighborhood %></button></a>
+
+      <% if @activity.neighborhood != nil %>
+        <a href="/neighborhood/<%= @activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= @activity.neighborhood %></button></a>
+      <% end %>
+
       <% @activity.category_list.split(",").each do |category| %>
-                  <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
-                <% end %><p>
+        <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
+      <% end %><p>
     </p>
   </div>
   </div>
