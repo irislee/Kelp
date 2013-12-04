@@ -44,7 +44,13 @@ User.create(:name => "Iris", :password => "human", :password_confirmation => "hu
 User.create(:name => "Scott", :password => "cheer", :password_confirmation => "cheer")
 Activity.find_by(:id => 1).reviews.create(:user_id => 1, :review_text => "This is great! I love taking my kids here.", :activity_id => 1)
 Activity.find_by(:id => 1).ratings.create(:user_id => 1, :score => 3, :activity_id => 1)
-Review.find_by(:id => 1).votes.create(votable_id: 1, votable_type: "Review", voter_id: 2, voter_type: "User", vote_flag: true, vote_scope: nil, vote_weight: 0)
-Review.find_by(:id => 1).votes.create(votable_id: 1, votable_type: "Review", voter_id: 3, voter_type: "User", vote_flag: true, vote_scope: nil, vote_weight: 0)
+Review.find_by(:id => 1).votes.create(votable_id: 1, votable_type: "Review", voter_id: 2, voter_type: "User", vote_flag: true)
+Review.find_by(:id => 1).votes.create(votable_id: 1, votable_type: "Review", voter_id: 3, voter_type: "User", vote_flag: false)
+
+Activity.find_by(:id => 1).reviews.create(:user_id => 3, :review_text => "Ouch. This is pricey!", :activity_id => 1)
+Activity.find_by(:id => 1).ratings.create(:user_id => 3, :score => 2, :activity_id => 1)
+Review.find_by(:id => 2).votes.create(votable_id: 1, votable_type: "Review", voter_id: 1, voter_type: "User", vote_flag: true)
+Review.find_by(:id => 2).votes.create(votable_id: 1, votable_type: "Review", voter_id: 2, voter_type: "User", vote_flag: true)
+
 
 
