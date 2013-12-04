@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @review.activity, notice: 'Review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @review }
       else
-        format.html { render action: 'new' }
+        format.html { redirect_to @review.activity, notice: 'Review did not save.' }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
