@@ -12,8 +12,10 @@
             <% end %>
             <span class="star" data-rating="<%= activity.average_rating %>"></span>
             <div class="info">
-                <p><%= activity.location %> | <a href="<%= activity.url %>"><%= activity.url %></a><br>
-                <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= activity.neighborhood %></button></a>
+                <p><%= activity.location %> <a href="<%= activity.url %>"><%= activity.url %></a><br>
+                <% if activity.neighborhood != nil %>
+                  <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= activity.neighborhood %></button></a>
+                <% end %>
                 <% activity.category_list.split(",").each do |category| %>
                   <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
                 <% end %><p>
