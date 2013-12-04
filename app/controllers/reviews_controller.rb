@@ -41,7 +41,9 @@ class ReviewsController < ApplicationController
         format.html { redirect_to @review.activity, notice: 'Review was successfully created.' }
         format.json { render action: 'show', status: :created, location: @review }
       else
-        format.html { redirect_to @review.activity, notice: 'Review did not save.' }
+        @activity = @review.activity
+        @rating = Rating.find_or_create_by(:activity_id => @activity.id, :user_id => current_user.id)
+        format.html { render "activities/show", notice: 'Cannot be blank.'}
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end
@@ -50,12 +52,16 @@ class ReviewsController < ApplicationController
   # PATCH/PUT /reviews/1
   # PATCH/PUT /reviews/1.json
   def update
+    @review = Review.find(params[:id])
+
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: 'Review was successfully updated.' }
+        format.html { redirect_to @review.activity, notice: 'Review was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        @activity = @review.activity
+        @rating = Rating.find_or_create_by(:activity_id => @activity.id, :user_id => current_user.id)
+        format.html { render "activities/show" }
         format.json { render json: @review.errors, status: :unprocessable_entity }
       end
     end

@@ -20,7 +20,8 @@ class ActivitiesController < ApplicationController
   # GET /activities/1.json
   def show
     if current_user
-      @review = @activity.reviews.build(:user_id => session[:user_id])
+      @review = Review.find_by(:user_id => current_user.id, :activity_id => @activity.id)
+      @review = @activity.reviews.build(:user_id => session[:user_id]) if @review.nil?
       @rating = Rating.find_or_create_by(:activity_id => @activity.id, :user_id => current_user.id) 
     end
   end
