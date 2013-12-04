@@ -1,33 +1,7 @@
 <section class='section-wrapper stripped'>
   <div class='container'>
     <h1 class='section-header'>Activities in Manhattan</h1>
-      <% @activities.each do |activity| %>
-        <div class="activity clearfix">
-            
-            <div class="title"><%= link_to activity.name, activity %></div>
-            <% if activity.image != nil %>
-              <a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a>
-            <% else %>
-              <a href="activities/<%= activity.id %>"><img src="http://placekitten.com/g/150/113"></a>
-            <% end %>
-            <span class="star" data-rating="<%= activity.average_rating %>"></span>
-            <div class="info">
-                <p><%= activity.location %> <a href="<%= activity.url %>"><%= activity.url %></a><br>
-                <% if activity.neighborhood != nil %>
-                  <a href="/neighborhood/<%= activity.neighborhood.to_s.gsub(" ", "-") %>"><button type="button" class="btn btn-primary btn-xs"><%= activity.neighborhood %></button></a>
-                <% end %>
-                <% activity.category_list.split(",").each do |category| %>
-                  <a href="/category/<%= CGI.escape(category) %>"><button type="button" class="btn btn-success btn-xs"><%= category %></button></a>
-                <% end %><p>
-              <div class="blurb">
-                <%= truncate(activity.blurb, length: 250) { link_to "Read More", activity} %>
-              </div>
-
-            </div><!-- .info -->
-
-        </div><!-- .activity -->
-        <hr>
-      <% end %>
+      <%= render 'activity' %>
   </div>
 </section>
 <%= will_paginate @activities %>
