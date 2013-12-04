@@ -5,12 +5,16 @@
     <h3 class='section-header'><%= @activity.name %></h3>
 
     <p>
-      <img src="http://kids.media.timeout.com/images/<%= @activity.image %>/150/113/image.jpg">
+      <% if @activity.image != "" %>
+        <img src="http://kids.media.timeout.com/images/<%= @activity.image %>/150/113/image.jpg">
+    <% else %>
+      <%= image_tag('cute_monocle_cat.jpg') %>
+    <% end %>
     </p>
 
     <span id="star"></span>
     <div class="info">
-    <p><%= @activity.location %> | <a href= "<%= @activity.url %>" target="_blank"><%= @activity.url %></a></p>
+    <p><%= @activity.location %> <a href= "<%= @activity.url %>" target="_blank"><%= @activity.url %></a></p>
 
     <p>
       <%= @activity.blurb %>

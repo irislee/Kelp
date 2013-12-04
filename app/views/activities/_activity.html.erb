@@ -2,10 +2,10 @@
   <div class="activity clearfix">
       
       <div class="title"><%= link_to activity.name, activity %></div>
-      <% if activity.image != nil %>
+      <% if activity.image != "" %>
         <a href="activities/<%= activity.id %>"><img src="http://kids.media.timeout.com/images/<%= activity.image %>/150/113/image.jpg"></a>
       <% else %>
-        <a href="activities/<%= activity.id %>"><img src="http://placekitten.com/g/150/113"></a>
+        <a href="activities/<%= activity.id %>"><%= image_tag('cute_monocle_cat.jpg') %></a>
       <% end %>
       <span class="star" data-rating="<%= activity.average_rating %>"></span>
       <div class="info">
