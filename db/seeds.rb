@@ -38,3 +38,9 @@ allresults.each do |activity|
     new_activity.save
   end
 end
+
+User.create(:name => "Margaret", :password => "coffee", :password_confirmation => "coffee" )
+User.create(:name => "Iris", :password => "human", :password_confirmation => "human")
+Activity.find_by(:id => 1).reviews.create(:user_id => 1, :review_text => "This is great! I love taking my kids here.", :activity_id => 1)
+Activity.find_by(:id => 1).ratings.create(:user_id => 1, :score => 3, :activity_id => 1)
+
