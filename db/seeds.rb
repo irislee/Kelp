@@ -43,14 +43,17 @@ User.create(:name => "Margaret", :password => "coffee", :password_confirmation =
 User.create(:name => "Iris", :password => "human", :password_confirmation => "human")
 User.create(:name => "Scott", :password => "cheer", :password_confirmation => "cheer")
 Activity.find_by(:id => 1).reviews.create(:user_id => 1, :review_text => "This is great! I love taking my kids here.", :activity_id => 1)
-Activity.find_by(:id => 1).ratings.create(:user_id => 1, :score => 3, :activity_id => 1)
+Activity.find_by(:id => 1).ratings.create(:user_id => 1, :score => 4, :activity_id => 1)
 Review.find_by(:id => 1).votes.create(votable_id: 1, votable_type: "Review", voter_id: 2, voter_type: "User", vote_flag: true)
 Review.find_by(:id => 1).votes.create(votable_id: 1, votable_type: "Review", voter_id: 3, voter_type: "User", vote_flag: false)
 
-Activity.find_by(:id => 1).reviews.create(:user_id => 3, :review_text => "Ouch. This is pricey!", :activity_id => 1)
-Activity.find_by(:id => 1).ratings.create(:user_id => 3, :score => 2, :activity_id => 1)
+Activity.find_by(:id => 1).reviews.create(:user_id => 3, :review_text => "Picked up the new Saige doll and 'The Smart Girl's Guide to Boys'!", :activity_id => 1)
+Activity.find_by(:id => 1).ratings.create(:user_id => 3, :score => 5, :activity_id => 1)
 Review.find_by(:id => 2).votes.create(votable_id: 1, votable_type: "Review", voter_id: 1, voter_type: "User", vote_flag: true)
 Review.find_by(:id => 2).votes.create(votable_id: 1, votable_type: "Review", voter_id: 2, voter_type: "User", vote_flag: true)
 
-
+Activity.find_by(:id => 2).reviews.create(:user_id => 2, :review_text => "Had a really fun time here with my niece on Sunday.", :activity_id => 2)
+Activity.find_by(:id => 2).ratings.create(:user_id => 2, :score => 3, :activity_id => 1)
+Review.find_by(:id => 3).votes.create(votable_id: 1, votable_type: "Review", voter_id: 1, voter_type: "User", vote_flag: true)
+Review.find_by(:id => 3).votes.create(votable_id: 1, votable_type: "Review", voter_id: 2, voter_type: "User", vote_flag: true)
 
