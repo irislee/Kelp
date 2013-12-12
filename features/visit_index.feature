@@ -5,6 +5,6 @@ Feature: Visit Index
  
 Scenario: Activity List
     Given I have activities The Art Farm in the City, Ice Festival
-    When I go to the list of articles
+    When I go to the list of activities
     Then I should see "The Art Farm in the City"
     And I should see "Ice Festival"

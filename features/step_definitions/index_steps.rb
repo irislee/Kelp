@@ -2,7 +2,7 @@ Given(/^I have activities The Art Farm in the City, Ice Festival$/) do
   visit '/'
 end
 
-When(/^I go to the list of articles$/) do
+When(/^I go to the list of activities$/) do
   visit '/'
 end
 
