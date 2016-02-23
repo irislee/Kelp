@@ -1,8 +1,11 @@
 README
 
 Kelp: It's Yelp for kids' activities in Manhattan.
-http://itsthisforthat.com/
 
+Visit: 
+http://kelp.herokuapp.com/
+
+Or:
 1. Open Terminal on your computer 
 2. In your terminal, type `cd Documents`
 3. In your terminal, type `git clone git@github.com:irislee/city-kid.git`
